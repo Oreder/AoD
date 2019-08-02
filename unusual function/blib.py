@@ -4,7 +4,7 @@ from math  import sqrt, pi, pow, fabs
 
 #======== how to use ==========
 # wnn = WNN()
-# wnn.load_function()
+# wnn.load_first_function()
 # wnn.train()
 
 class WNN(object):
@@ -18,7 +18,7 @@ class WNN(object):
         self.Ns = Ns
         self.plot_flag = plot_flag
 
-    def load_function(self, X, Y):
+    def load_first_function(self, X, Y):
         self.N = X.shape[0]
         xmax = fabs(np.max(X))
         # self.ymax = fabs(np.max(Y))
@@ -73,7 +73,7 @@ class WNN(object):
             MSE_wnn[epoca] = np.sum(E_wnn) / self.N
 
             if self.plot_flag:
-                if (epoca % 200 == 0 or epoca == self.epoch_max - 1):
+                if (epoca % int(self.epoch_max / 100) == 0 or epoca == self.epoch_max - 1):
                     if (epoca != 0):
                         plt.cla()
                         plt.clf()
@@ -109,7 +109,7 @@ class WNN(object):
         Ymax = np.max(self.d) * 1.4
         plt.axis([Xmin, Xmax, Ymin, Ymax])
         plt.show()
-        fname = 'www/' + str(round(float(epoca) / self.epoch_max * 100, 2)) + '.png'
+        fname = 'cas/' + str(round(float(epoca) / self.epoch_max * 100, 2)) + '.png'
         plt.savefig(fname=fname, quality=95)
         plt.pause(1e-100)
 

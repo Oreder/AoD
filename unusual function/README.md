@@ -21,3 +21,5 @@
 3) Natural Cubic Spline Algorithm
 
 4) [WNN](https://github.com/walissonsilva/wavelet-neural-network) by Walisson Silva.
+
+5) ZARITA ZAINUDDIN, ONG PAULINE, Function Approximation Using Artificial Neural Networks (2007)
