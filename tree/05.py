@@ -3,7 +3,7 @@ import plotly.graph_objects as go
 import pandas as pd
 
 # Read data from a csv
-z_data = pd.read_csv('src/Divergence-10k.csv')
+z_data = pd.read_csv('result/Divergence-10k.csv')
 
 fig = go.Figure(data=[go.Surface(z=z_data.values)])
 fig.update_traces(contours_z=dict(show=True, usecolormap=True,
