@@ -22,7 +22,31 @@ double getBeliefCoef(double x, double x1, double x2)
 double MSE(double test[n], double given[n])
 {
     double error = 0.0;
-    for (int i = 0; i < (int)(n * 0.8); i++)
+    for (int i = 0; i < n; i++)
         error += pow(test[i] - given[i], 2.0);
     return sqrt(error / (double)(n-1)); 
+}
+
+int bSearch(double value, double head[m])
+{
+    int left = 0, right = m-1;
+
+    while (abs(right - left) > 1)
+    {
+        int index = (int)((left + right) / 2);
+        if (head[index] > value)
+            right = index;
+        else
+            left = index;
+    }
+
+    return left;
+}
+
+int getChosenIndexBegin(double value, double head[m])
+{
+    int i = bSearch(value, head);
+    int j = i - (int)(chosen / 2);
+    
+    return (j >= 0) ? j : 0;
 }
